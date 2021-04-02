@@ -5,19 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  button: {
-    fontSize: 60,
-    backgroundColor: "violet",
-    "&:hover": {
-      backgroundColor: "blue",
-    },
-  },
-  title: {
-    textDecoration: "underline",
-    marginBottom: 20,
-  },
-});
+const useStyles = makeStyles({});
 
 export default function Create() {
   const classes = useStyles();
