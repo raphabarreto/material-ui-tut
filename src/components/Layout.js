@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => {
       width: "100%",
       padding: theme.spacing(3),
     },
+    root: {
+      display: "flex",
+    },
     drawer: {
       width: drawerWidth,
     },
     drawerPaper: {
       width: drawerWidth,
-    },
-    root: {
-      display: "flex",
     },
     active: {
       background: "#f4f4f4",
@@ -37,12 +37,12 @@ const useStyles = makeStyles((theme) => {
     },
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
     },
-    toolBar: theme.mixins.toolbar,
-
     date: {
       flexGrow: 1,
     },
+    toolbar: theme.mixins.toolbar,
   };
 });
 
