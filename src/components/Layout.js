@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { Avatar, makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => {
       flexGrow: 1,
     },
     toolbar: theme.mixins.toolbar,
+    avatar: {
+      marginLeft: theme.spacing(2),
+    },
   };
 });
 
@@ -77,7 +80,11 @@ export default function Layout({ children }) {
       <AppBar className={classes.appBar} elevation={1}>
         <Toolbar>
           <Typography className={classes.date}>Hoje é {currentDate}</Typography>
-          <Typography>Mario</Typography>
+          <Typography>Raphael Barreto</Typography>
+          <Avatar
+            src="https://github.com/raphabarreto.png"
+            className={classes.avatar}
+          />
         </Toolbar>
       </AppBar>
 
