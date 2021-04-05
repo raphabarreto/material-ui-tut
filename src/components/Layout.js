@@ -8,6 +8,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 
 const drawerWidth = 240;
 
@@ -33,6 +35,14 @@ const useStyles = makeStyles((theme) => {
     title: {
       padding: theme.spacing(2),
     },
+    appBar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    toolBar: theme.mixins.toolbar,
+
+    date: {
+      flexGrow: 1,
+    },
   };
 });
 
@@ -40,6 +50,14 @@ export default function Layout({ children }) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+
+  const today = new Date();
+
+  const currentDate = new Intl.DateTimeFormat("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(today);
 
   const menuItems = [
     {
@@ -56,6 +74,13 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
+      <AppBar className={classes.appBar} elevation={1}>
+        <Toolbar>
+          <Typography className={classes.date}>Hoje é {currentDate}</Typography>
+          <Typography>Mario</Typography>
+        </Toolbar>
+      </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -87,7 +112,10 @@ export default function Layout({ children }) {
         </List>
       </Drawer>
 
-      <div className={classes.page}>{children}</div>
+      <div className={classes.page}>
+        <div className={classes.toolbar}></div>
+        {children}
+      </div>
     </div>
   );
 }
